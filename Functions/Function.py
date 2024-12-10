@@ -58,7 +58,7 @@ def login(username, password):
         if spadminacc["superadminusername"] == username and spadminacc["superadminpassword"] == password:
             st.session_state["superadminlogin"] = True
             st.session_state["displayname"] = username
-            st.session_state["Role"] = "Super Admin"
+            st.session_state["Role"] = "Developer"
             st.success("Login berhasil!")
             st.rerun()
             return
