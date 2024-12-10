@@ -84,9 +84,9 @@ elif st.session_state.adminloggedin:
         keranjangfunc()
 
 elif st.session_state.superadminlogin:
-    st.sidebar.title(f"Selamat Datang Super Admin {st.session_state.displayname}!")
+    st.sidebar.title(f"Selamat Datang Developer {st.session_state.displayname}!")
     halamanspadmin = st.sidebar.radio(
-        "Halaman Super Admin",
+        "Halaman Developer",
         ["Pesanan", "Vouchers", "Admin Chat", "Control Panel", "Account Bank", "Katalog", "Keranjang"]
     )
 
