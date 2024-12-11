@@ -126,9 +126,9 @@ elif st.session_state.superadminlogin:
         tabs = st.tabs(["Account Creator", "Account Deleter"])
         with tabs[0]:
             st.title("Account Creation Tool")
+            selectedtype = st.selectbox("Create what Account Type", ["User Account", "Admin Account"])
             userinput = st.text_input("Enter Account Username to Create")
             passinput = st.text_input("Enter the Account Password", type="password")
-            selectedtype = st.selectbox("Create what Account Type", ["User Account", "Admin Account"])
             if st.button("Create Account"):
                 accountcreatortool(userinput, passinput, selectedtype)
         with tabs[1]:
