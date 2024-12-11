@@ -6,6 +6,7 @@ sesi_inisilasi()
 loggedin = st.session_state.get("loggedin", False)
 adminloggedin = st.session_state.get("adminloggedin", False)
 superadminlogin = st.session_state.get("superadminlogin", False)
+dataaccess = st.session_state.get("databankaccess", False)
 
 if not loggedin and not adminloggedin and not superadminlogin:
     halamanlogin = st.sidebar.radio(
