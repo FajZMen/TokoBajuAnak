@@ -133,7 +133,7 @@ elif st.session_state.superadminlogin:
                 accountcreatortool(userinput, passinput, selectedtype)
         with tabs[1]:
             st.title("Account Deletion Tool")
-            deluserinput = st.text_input("Username")
+            deluserinput = st.text_input("Delete Username")
             delselectedtype = st.selectbox("Account Type", ["User Account", "Admin Account"])
             if st.button("Delete Account"):
                 accountdeletortool(deluserinput, delselectedtype)
