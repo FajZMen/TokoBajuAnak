@@ -149,6 +149,7 @@ elif st.session_state.superadminlogin:
             if st.button("Enter Databank"):
                 if sneakypass == "4202024":
                     st.session_state.databankaccess = True
+                    st.rerun()
                 else:
                     st.write("Wrong")
 
