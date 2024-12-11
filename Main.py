@@ -64,10 +64,6 @@ elif st.session_state.adminloggedin:
         with vtab[0]:
             vouchermaker()
             st.write("Active Vouchers")
-            if vouchers:
-                st.data_editor(vouchers, num_rows="dynamic")
-            else:
-                st.warning("Belum ada voucher yang aktif.")
         with vtab[1]:
             voucherdeleter()
 
