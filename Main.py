@@ -93,6 +93,7 @@ elif st.session_state.superadminlogin:
 
     if st.sidebar.button("Logout"):
         st.session_state["superadminlogin"] = False
+        st.session_state["databankaccess"] = False
         st.rerun()
 
     if halamanspadmin == "Pesanan":
