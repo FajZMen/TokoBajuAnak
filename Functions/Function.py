@@ -152,6 +152,17 @@ def vouchermaker():
         vouchers.append({"kode": kode, "diskon": diskon, "Annouce": Annouce})
         st.success("Voucher berhasil dibuat!")
 
+def voucherdeleter():
+    vouchertarget = st.selectbox("Pilih Voucher untuk dihapus", vouchers)
+    if st.button("Hapus Voucher"):
+        vouchers.remove(vouchertarget)
+        st.success("Voucher berhasil dihapus!")
+    st.write("Active Vouchers")
+    if vouchers:
+        st.data_editor(vouchers, num_rows="dynamic")
+    else:
+        st.write("Belum ada Voucher yg aktif")
+    
 def adminchat():
     adminmessage = st.chat_input("Chat here")
     if st.button("Refresh Chat"):
