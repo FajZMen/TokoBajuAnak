@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from Functions.Function import sesi_inisilasi, tambah_ke_keranjang, login, katalogfunc, keranjangfunc, historypesanan, vouchermaker, voucherdeleter, adminchat, accountbank, accountcreatortool
+from Functions.Function import sesi_inisilasi, tambah_ke_keranjang, login, katalogfunc, keranjangfunc, historypesanan, vouchermaker, voucherdeleter, adminchat, accountbank, accountcreatortool, accountdeletortool
 from Data.Datas import baju_anak, accounts, adminaccounts, superadminaccounts, historypesananlist, vouchers, adminchathistory
 sesi_inisilasi()
 loggedin = st.session_state.get("loggedin", False)
@@ -125,15 +125,18 @@ elif st.session_state.superadminlogin:
     if halamanspadmin == "Dev Tools":
         tabs = st.tabs(["Account Creator", "Funni"])
         with tabs[0]:
-            st.title("Account Creator Tool")
+            st.title("Account Creation Tool")
             userinput = st.text_input("Username")
             passinput = st.text_input("Password", type="password")
             selectedtype = st.selectbox("Account Type", ["User Account", "Admin Account"])
             if st.button("Create Account"):
                 accountcreatortool(userinput, passinput, selectedtype)
         with tabs[1]:
-            st.title("Funni")
-
+            st.title("Account Deletion Tool")
+            userinput = st.text_input("Username")
+            selectedtype = st.selectbox("Account Type", ["User Account", "Admin Account"])
+            if st.button("Delete Account"):
+                accountdeletortool(userinput)
 
     if halamanspadmin == "Account Bank":
         st.title("Account Databank")
