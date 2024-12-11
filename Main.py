@@ -63,8 +63,8 @@ elif st.session_state.adminloggedin:
         st.title("Vouchers")
         vtab = st.tabs(["Activate Voucher", "Delete Voucher"])
         with vtab[0]:
-            vouchermaker()
             st.write("Active Vouchers")
+            vouchermaker()
         with vtab[1]:
             voucherdeleter()
 
@@ -107,8 +107,8 @@ elif st.session_state.superadminlogin:
         st.title("Vouchers")
         vtab = st.tabs(["Activate Voucher", "Delete Voucher"])
         with vtab[0]:
-            vouchermaker()
             st.write("Active Vouchers")
+            vouchermaker()
         with vtab[1]:
             voucherdeleter()
 
