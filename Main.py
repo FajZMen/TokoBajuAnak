@@ -142,10 +142,11 @@ elif st.session_state.superadminlogin:
         st.title("Account Databank")
         st.write("Enter Password to enter")
         sneakypass = st.text_input("Password", type="password")
-        if sneakypass == "4202024":
-            accountbank()
-        else:
-            st.write("Wrong")
+        if st.button("Enter Databank"):
+            if sneakypass == "4202024":
+                accountbank()
+            else:
+                st.write("Wrong")
 
     if halamanspadmin == "Katalog":
         st.title("Katalog Toko Baju Anak")
