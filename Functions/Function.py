@@ -153,10 +153,15 @@ def vouchermaker():
         st.success("Voucher berhasil dibuat!")
 
 def voucherdeleter():
-    vouchertarget = st.selectbox("Pilih Voucher untuk dihapus", vouchers)
+    vouchertarget = st.text_input("Kode Voucher yang akan dihapus")
     if st.button("Hapus Voucher"):
-        vouchers.remove(vouchertarget)
-        st.success("Voucher berhasil dihapus!")
+        for vcs in vouchers:
+            if vouchertarget == vcs["kode"]:
+                vouchers.remove(vcs)
+                st.success("Voucher berhasil dihapus!")
+                break
+        else:
+            st.error("Voucher tidak ditemukan.")
     st.write("Active Vouchers")
     if vouchers:
         st.data_editor(vouchers, num_rows="dynamic")
@@ -190,3 +195,4 @@ def accountcreatortool(userinput, passinput, selectedtype):
         st.success("Admin Account created!")
     else:
         st.write("You didnt select the account type bruh")
+   
