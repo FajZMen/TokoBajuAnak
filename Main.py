@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from Functions.Function import sesi_inisilasi, tambah_ke_keranjang, login, katalogfunc, keranjangfunc, historypesanan, vouchermaker, adminchat, accountbank
+from Functions.Function import sesi_inisilasi, tambah_ke_keranjang, login, katalogfunc, keranjangfunc, historypesanan, vouchermaker, adminchat, accountbank, accountcreatortool
 from Data.Datas import baju_anak, accounts, adminaccounts, superadminaccounts, historypesananlist, vouchers, adminchathistory
 sesi_inisilasi()
 loggedin = st.session_state.get("loggedin", False)
@@ -86,8 +86,8 @@ elif st.session_state.adminloggedin:
 elif st.session_state.superadminlogin:
     st.sidebar.title(f"Selamat Datang Developer {st.session_state.displayname}!")
     halamanspadmin = st.sidebar.radio(
-        "Halaman Developer",
-        ["Pesanan", "Vouchers", "Admin Chat", "Control Panel", "Account Bank", "Katalog", "Keranjang"]
+        "Halaman Super Admin",
+        ["Pesanan", "Vouchers", "Admin Chat", "Dev Tools", "Account Bank", "Katalog", "Keranjang"]
     )
 
     if st.sidebar.button("Logout"):
@@ -122,8 +122,18 @@ elif st.session_state.superadminlogin:
             adminchathistory.clear()
             st.rerun()
 
-    if halamanspadmin == "Control Panel":
-        st.write("Blank. LOL")
+    if halamanspadmin == "Dev Tools":
+        tabs = st.tabs(["Account Creator", "Funni"])
+        with tabs[0]:
+            st.title("Account Creator Tool")
+            userinput = st.text_input("Username")
+            passinput = st.text_input("Password", type="password")
+            selectedtype = st.selectbox("Account Type", ["User Account", "Admin Account"])
+            if st.button("Create Account"):
+                accountcreatortool(userinput, passinput, selectedtype)
+        with tabs[1]:
+            st.title("Funni")
+
 
     if halamanspadmin == "Account Bank":
         st.title("Account Databank")
