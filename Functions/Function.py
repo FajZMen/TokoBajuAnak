@@ -151,6 +151,11 @@ def vouchermaker():
     if st.button("Aktifkan Voucher"):
         vouchers.append({"kode": kode, "diskon": diskon, "Annouce": Annouce})
         st.success("Voucher berhasil dibuat!")
+    
+    if vouchers:
+        st.dataframe(vouchers)
+    else:
+        st.warning("Belum ada voucher yang aktif.")
 
 def voucherdeleter():
     vouchertarget = st.text_input("Kode Voucher yang akan dihapus")
@@ -162,9 +167,10 @@ def voucherdeleter():
                 break
         else:
             st.error("Voucher tidak ditemukan.")
+
     st.write("Active Vouchers")
     if vouchers:
-        st.data_editor(vouchers, num_rows="dynamic")
+        st.dataframe(vouchers)
     else:
         st.write("Belum ada Voucher yg aktif")
     
@@ -195,4 +201,3 @@ def accountcreatortool(userinput, passinput, selectedtype):
         st.success("Admin Account created!")
     else:
         st.write("You didnt select the account type bruh")
-   
