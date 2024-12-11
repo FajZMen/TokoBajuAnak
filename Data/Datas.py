@@ -36,6 +36,6 @@ adminaccounts = [
 ]
 
 superadminaccounts = [
-    {"superadminusername": "FajZ", "superadminpassword": "ZSTLead"},
+    {"superadminusername": "FajZ", "superadminpassword": "zstleader222"},
 ]
 
