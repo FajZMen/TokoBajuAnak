@@ -141,7 +141,7 @@ elif st.session_state.superadminlogin:
 
     if halamanspadmin == "Account Bank":
         st.title("Account Databank")
-        if st.session_state.databankaccess:
+        if "databankaccess" in st.session_state and st.session_state.databankaccess:
             accountbank()
         else:
             st.write("Enter Password to enter")
