@@ -123,7 +123,7 @@ elif st.session_state.superadminlogin:
             st.rerun()
 
     if halamanspadmin == "Dev Tools":
-        tabs = st.tabs(["Account Creator", "Funni"])
+        tabs = st.tabs(["Account Creator", "Account Deleter"])
         with tabs[0]:
             st.title("Account Creation Tool")
             userinput = st.text_input("Username")
