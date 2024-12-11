@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from Functions.Function import sesi_inisilasi, tambah_ke_keranjang, login, katalogfunc, keranjangfunc, historypesanan, vouchermaker, adminchat, accountbank, accountcreatortool
+from Functions.Function import sesi_inisilasi, tambah_ke_keranjang, login, katalogfunc, keranjangfunc, historypesanan, vouchermaker, voucherdeleter, adminchat, accountbank, accountcreatortool
 from Data.Datas import baju_anak, accounts, adminaccounts, superadminaccounts, historypesananlist, vouchers, adminchathistory
 sesi_inisilasi()
 loggedin = st.session_state.get("loggedin", False)
@@ -59,13 +59,17 @@ elif st.session_state.adminloggedin:
             st.warning("Belum ada pesanan.")
     
     if halamanadmin == "Vouchers":
-        st.title("Vouchers Activator")
-        vouchermaker()
-        st.write("Active Vouchers")
-        if vouchers:
-            st.data_editor(vouchers, num_rows="dynamic")
-        else:
-            st.warning("Belum ada voucher yang aktif.")
+        st.title("Vouchers")
+        vtab = st.tabs(["Activate Voucher", "Delete Voucher"])
+        with vtab[0]:
+            vouchermaker()
+            st.write("Active Vouchers")
+            if vouchers:
+                st.data_editor(vouchers, num_rows="dynamic")
+            else:
+                st.warning("Belum ada voucher yang aktif.")
+        with vtab[1]:
+            voucherdeleter()
 
     if halamanadmin == "Admin Chat":
         st.title("Admin Chat")
@@ -102,13 +106,17 @@ elif st.session_state.superadminlogin:
             st.warning("Belum ada pesanan.")
     
     if halamanspadmin == "Vouchers":
-        st.title("Vouchers Activator")
-        vouchermaker()
-        st.write("Active Vouchers")
-        if vouchers:
-            st.data_editor(vouchers, num_rows="dynamic")
-        else:
-            st.warning("Belum ada voucher yang aktif.")
+        st.title("Vouchers")
+        vtab = st.tabs(["Activate Voucher", "Delete Voucher"])
+        with vtab[0]:
+            vouchermaker()
+            st.write("Active Vouchers")
+            if vouchers:
+                st.data_editor(vouchers, num_rows="dynamic")
+            else:
+                st.warning("Belum ada voucher yang aktif.")
+        with vtab[1]:
+            voucherdeleter()
 
     if halamanspadmin == "Admin Chat":
         st.title("Admin Chat")
