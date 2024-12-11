@@ -28,7 +28,6 @@ accounts = [
 ]
 
 adminaccounts = [
-    {"adminusername": "admin", "adminpassword": "adminorang"},
     {"adminusername": "Sabrina", "adminpassword": "15240233"},
     {"adminusername": "Putra", "adminpassword": "15240301"},
     {"adminusername": "Valenvia", "adminpassword": "15240234"},
