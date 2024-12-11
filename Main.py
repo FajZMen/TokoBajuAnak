@@ -139,7 +139,6 @@ elif st.session_state.superadminlogin:
                 accountdeletortool(deluserinput, delselectedtype)
 
     if halamanspadmin == "Account Bank":
-        st.rerun()
         st.title("Account Databank")
         st.write("Enter Password to enter")
         sneakypass = st.text_input("Password", type="password")
