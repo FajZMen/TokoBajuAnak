@@ -201,3 +201,23 @@ def accountcreatortool(userinput, passinput, selectedtype):
         st.success("Admin Account created!")
     else:
         st.write("You didnt select the account type bruh")
+
+def accountdeletortool(userinput, selectedtype):
+    if selectedtype == "User Account":
+        for user in accounts:
+            if userinput == user["username"]:
+                accounts.remove(user)
+                st.success("User Account deleted!")
+                break
+        else:
+            st.error("User Account not found!")
+    elif selectedtype == "Admin Account":
+        for auser in adminaccounts:
+            if userinput == auser["adminusername"]:
+                adminaccounts.remove(auser)
+                st.success("Admin Account deleted!")
+                break
+        else:
+            st.error("Admin Account not found!")
+    else:
+        st.write("You didnt select the account type bruh")
