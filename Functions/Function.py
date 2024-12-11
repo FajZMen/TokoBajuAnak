@@ -169,3 +169,13 @@ def accountbank():
         st.data_editor(superadminaccounts, num_rows="dynamic")
     else:
         st.write("Nothing to show")
+
+def accountcreatortool(userinput, passinput, selectedtype):
+    if selectedtype == "User Account":
+        accounts.append({"username": userinput, "password": passinput})
+        st.success("Account created!")
+    elif selectedtype == "Admin Account":
+        adminaccounts.append({"adminusername": userinput, "adminpassword": passinput})
+        st.success("Admin Account created!")
+    else:
+        st.write("You didnt select the account type bruh")
